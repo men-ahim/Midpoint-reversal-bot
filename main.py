@@ -1,24 +1,9 @@
-import os
-import requests
-from flask import Flask, request
-
+from flask import Flask
 app = Flask(__name__)
-
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
-
-def send_telegram_message(text):
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-    data = {"chat_id": CHAT_ID, "text": text}
-    requests.post(url, data=data)
 
 @app.route("/")
 def index():
     return "Midpoint Reversal Bot is running!"
 
-@app.route("/signal", methods=["POST"])
-def signal():
-    content = request.json
-    message = f"Signal: {content}"
-    send_telegram_message(message)
-    return "OK"
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
