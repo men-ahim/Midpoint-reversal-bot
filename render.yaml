@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: midpoint-reversal-bot
+    env: python
+    buildCommand: ""
+    startCommand: "python main.py"
+    envVars:
+      - key: TELEGRAM_TOKEN
+        value: your_token_here
+      - key: CHAT_ID
+        value: your_chat_id_here
