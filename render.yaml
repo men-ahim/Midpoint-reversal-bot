@@ -3,7 +3,6 @@ services:
     name: midpoint-reversal-bot
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python main.py
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
     envVars: []
-    autoDeploy: true
